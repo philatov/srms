@@ -1,0 +1,8 @@
+﻿CREATE TABLE [srms].[Message]
+(
+    [Uid] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [Timestamp] DATETIMEOFFSET NOT NULL,
+    [Text] NVARCHAR(1000) NOT NULL,
+    [UserId] UNIQUEIDENTIFIER NOT NULL,
+    CONSTRAINT [FK_Message_User_UserId] FOREIGN KEY ([UserId]) REFERENCES [srms].[User]([Uid])
+)

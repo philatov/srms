@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>reports</TargetDatabaseName>
+    <DeployScriptFileName>reports.sql</DeployScriptFileName>
+    <TargetConnectionString>Server=srms-db;Database=master;User=sa;Password=Sa_Pa55w0rd;</TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+  </PropertyGroup>
+</Project>

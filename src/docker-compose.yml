@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  web-api:
+    image: ${DOCKER_REGISTRY-}srms-web-api
+    build:
+      context: .
+      dockerfile: WebApi.Dockerfile
+  web:
+    image: ${DOCKER_REGISTRY-}srms-web
+    build:
+      context: .
+      dockerfile: Web.Dockerfile

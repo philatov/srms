@@ -1,0 +1,14 @@
+﻿MERGE [srms].[Message] AS t
+USING (VALUES 
+    ('1680E46D-6CEB-4CB4-9FAA-239D300F71A2', '2020-03-15T10:00:00Z', 'Hey! Whatzup?!', 'E9ED3583-4A71-4F89-A96D-EF07755AF013'),
+    ('8D61D98E-F49B-45DB-8638-1F81040A4320', '2020-03-15T10:00:01Z', 'It''s been a tough week, let me try and relax today', 'E9ED3583-4A71-4F89-A96D-EF07755AF013'),
+    ('C0AE337E-5AD2-4B20-8682-A2CB20D894F9', '2020-03-15T10:00:02Z', 'Wait am I forgetting something.', 'E9ED3583-4A71-4F89-A96D-EF07755AF013')
+    --('892A391A-2C37-482B-86EE-AD5247C6CE31', N'User2'),
+    --('05AAFEF5-B07C-49B2-ACC8-87CAA317AC61', N'User3')
+) s ([Uid],[Timestamp],[Text],[UserId])
+ON (t.[Uid] = s.[Uid])
+WHEN NOT MATCHED THEN
+    INSERT ([Uid],[Timestamp],[Text],[UserId]) VALUES (s.[Uid], s.[Timestamp], s.[Text], s.[UserId])
+WHEN NOT MATCHED BY SOURCE THEN
+    DELETE;
+GO
